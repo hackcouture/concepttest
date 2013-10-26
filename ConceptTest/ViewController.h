@@ -10,4 +10,7 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UILabel *yesLabel;
+@property (nonatomic, weak) IBOutlet UILabel *noLabel;
+
 @end

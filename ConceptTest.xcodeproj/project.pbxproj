@@ -21,6 +21,10 @@
 		4AEFDEC5181C57A0004D7AB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDEA7181C579F004D7AB9 /* UIKit.framework */; };
 		4AEFDECD181C57A0004D7AB9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFDECB181C57A0004D7AB9 /* InfoPlist.strings */; };
 		4AEFDECF181C57A0004D7AB9 /* ConceptTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDECE181C57A0004D7AB9 /* ConceptTestTests.m */; };
+		4AEFDEEA181C5A44004D7AB9 /* libPLTDevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDEE9181C5A44004D7AB9 /* libPLTDevice.a */; };
+		4AEFDEED181C5FB9004D7AB9 /* GestureDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDEEC181C5FB9004D7AB9 /* GestureDetector.m */; };
+		4AEFDEF0181C68AE004D7AB9 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDEEF181C68AE004D7AB9 /* DeviceManager.m */; };
+		4AEFDEF2181C6A75004D7AB9 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDEF1181C6A75004D7AB9 /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,25 @@
 		4AEFDECA181C57A0004D7AB9 /* ConceptTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConceptTestTests-Info.plist"; sourceTree = "<group>"; };
 		4AEFDECC181C57A0004D7AB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4AEFDECE181C57A0004D7AB9 /* ConceptTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConceptTestTests.m; sourceTree = "<group>"; };
+		4AEFDEDB181C5A44004D7AB9 /* PLTCalibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTCalibration.h; sourceTree = "<group>"; };
+		4AEFDEDC181C5A44004D7AB9 /* PLTConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTConfiguration.h; sourceTree = "<group>"; };
+		4AEFDEDD181C5A44004D7AB9 /* PLTDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTDevice.h; sourceTree = "<group>"; };
+		4AEFDEDE181C5A44004D7AB9 /* PLTFreeFallInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTFreeFallInfo.h; sourceTree = "<group>"; };
+		4AEFDEDF181C5A44004D7AB9 /* PLTGyroscopeCalibrationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTGyroscopeCalibrationInfo.h; sourceTree = "<group>"; };
+		4AEFDEE0181C5A44004D7AB9 /* PLTInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTInfo.h; sourceTree = "<group>"; };
+		4AEFDEE1181C5A44004D7AB9 /* PLTMagnetometerCalibrationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTMagnetometerCalibrationInfo.h; sourceTree = "<group>"; };
+		4AEFDEE2181C5A44004D7AB9 /* PLTOrientationTrackingCalibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTOrientationTrackingCalibration.h; sourceTree = "<group>"; };
+		4AEFDEE3181C5A44004D7AB9 /* PLTOrientationTrackingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTOrientationTrackingInfo.h; sourceTree = "<group>"; };
+		4AEFDEE4181C5A44004D7AB9 /* PLTPedometerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTPedometerInfo.h; sourceTree = "<group>"; };
+		4AEFDEE5181C5A44004D7AB9 /* PLTProximityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTProximityInfo.h; sourceTree = "<group>"; };
+		4AEFDEE6181C5A44004D7AB9 /* PLTTapsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTTapsInfo.h; sourceTree = "<group>"; };
+		4AEFDEE7181C5A44004D7AB9 /* PLTWearingStateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTWearingStateInfo.h; sourceTree = "<group>"; };
+		4AEFDEE9181C5A44004D7AB9 /* libPLTDevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPLTDevice.a; sourceTree = "<group>"; };
+		4AEFDEEB181C5FB9004D7AB9 /* GestureDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureDetector.h; sourceTree = "<group>"; };
+		4AEFDEEC181C5FB9004D7AB9 /* GestureDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureDetector.m; sourceTree = "<group>"; };
+		4AEFDEEE181C68AE004D7AB9 /* DeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManager.h; sourceTree = "<group>"; };
+		4AEFDEEF181C68AE004D7AB9 /* DeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManager.m; sourceTree = "<group>"; };
+		4AEFDEF1181C6A75004D7AB9 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AEFDEF2181C6A75004D7AB9 /* ExternalAccessory.framework in Frameworks */,
+				4AEFDEEA181C5A44004D7AB9 /* libPLTDevice.a in Frameworks */,
 				4AEFDEA6181C579F004D7AB9 /* CoreGraphics.framework in Frameworks */,
 				4AEFDEA8181C579F004D7AB9 /* UIKit.framework in Frameworks */,
 				4AEFDEA4181C579F004D7AB9 /* Foundation.framework in Frameworks */,
@@ -101,6 +126,7 @@
 		4AEFDEA2181C579F004D7AB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AEFDEF1181C6A75004D7AB9 /* ExternalAccessory.framework */,
 				4AEFDEA3181C579F004D7AB9 /* Foundation.framework */,
 				4AEFDEA5181C579F004D7AB9 /* CoreGraphics.framework */,
 				4AEFDEA7181C579F004D7AB9 /* UIKit.framework */,
@@ -112,11 +138,16 @@
 		4AEFDEA9181C579F004D7AB9 /* ConceptTest */ = {
 			isa = PBXGroup;
 			children = (
+				4AEFDED8181C5A44004D7AB9 /* Vendor */,
 				4AEFDEB2181C579F004D7AB9 /* AppDelegate.h */,
 				4AEFDEB3181C57A0004D7AB9 /* AppDelegate.m */,
 				4AEFDEB5181C57A0004D7AB9 /* Main.storyboard */,
 				4AEFDEB8181C57A0004D7AB9 /* ViewController.h */,
 				4AEFDEB9181C57A0004D7AB9 /* ViewController.m */,
+				4AEFDEEB181C5FB9004D7AB9 /* GestureDetector.h */,
+				4AEFDEEC181C5FB9004D7AB9 /* GestureDetector.m */,
+				4AEFDEEE181C68AE004D7AB9 /* DeviceManager.h */,
+				4AEFDEEF181C68AE004D7AB9 /* DeviceManager.m */,
 				4AEFDEBB181C57A0004D7AB9 /* Images.xcassets */,
 				4AEFDEAA181C579F004D7AB9 /* Supporting Files */,
 			);
@@ -150,6 +181,51 @@
 				4AEFDECB181C57A0004D7AB9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AEFDED8181C5A44004D7AB9 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				4AEFDED9181C5A44004D7AB9 /* PLTDevice */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		4AEFDED9181C5A44004D7AB9 /* PLTDevice */ = {
+			isa = PBXGroup;
+			children = (
+				4AEFDEDA181C5A44004D7AB9 /* include */,
+				4AEFDEE8181C5A44004D7AB9 /* lib */,
+			);
+			path = PLTDevice;
+			sourceTree = "<group>";
+		};
+		4AEFDEDA181C5A44004D7AB9 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4AEFDEDB181C5A44004D7AB9 /* PLTCalibration.h */,
+				4AEFDEDC181C5A44004D7AB9 /* PLTConfiguration.h */,
+				4AEFDEDD181C5A44004D7AB9 /* PLTDevice.h */,
+				4AEFDEDE181C5A44004D7AB9 /* PLTFreeFallInfo.h */,
+				4AEFDEDF181C5A44004D7AB9 /* PLTGyroscopeCalibrationInfo.h */,
+				4AEFDEE0181C5A44004D7AB9 /* PLTInfo.h */,
+				4AEFDEE1181C5A44004D7AB9 /* PLTMagnetometerCalibrationInfo.h */,
+				4AEFDEE2181C5A44004D7AB9 /* PLTOrientationTrackingCalibration.h */,
+				4AEFDEE3181C5A44004D7AB9 /* PLTOrientationTrackingInfo.h */,
+				4AEFDEE4181C5A44004D7AB9 /* PLTPedometerInfo.h */,
+				4AEFDEE5181C5A44004D7AB9 /* PLTProximityInfo.h */,
+				4AEFDEE6181C5A44004D7AB9 /* PLTTapsInfo.h */,
+				4AEFDEE7181C5A44004D7AB9 /* PLTWearingStateInfo.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		4AEFDEE8181C5A44004D7AB9 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				4AEFDEE9181C5A44004D7AB9 /* libPLTDevice.a */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AEFDEBA181C57A0004D7AB9 /* ViewController.m in Sources */,
+				4AEFDEF0181C68AE004D7AB9 /* DeviceManager.m in Sources */,
+				4AEFDEED181C5FB9004D7AB9 /* GestureDetector.m in Sources */,
 				4AEFDEB4181C57A0004D7AB9 /* AppDelegate.m in Sources */,
 				4AEFDEB0181C579F004D7AB9 /* main.m in Sources */,
 			);
@@ -381,6 +459,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConceptTest/ConceptTest-Prefix.pch";
 				INFOPLIST_FILE = "ConceptTest/ConceptTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/phil/src/Experiments/hackcouture/ConceptTest/ConceptTest/Vendor/PLTDevice/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -394,6 +476,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConceptTest/ConceptTest-Prefix.pch";
 				INFOPLIST_FILE = "ConceptTest/ConceptTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/phil/src/Experiments/hackcouture/ConceptTest/ConceptTest/Vendor/PLTDevice/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
