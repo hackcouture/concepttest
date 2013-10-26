@@ -25,6 +25,7 @@
 		4AEFDEED181C5FB9004D7AB9 /* GestureDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDEEC181C5FB9004D7AB9 /* GestureDetector.m */; };
 		4AEFDEF0181C68AE004D7AB9 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDEEF181C68AE004D7AB9 /* DeviceManager.m */; };
 		4AEFDEF2181C6A75004D7AB9 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDEF1181C6A75004D7AB9 /* ExternalAccessory.framework */; };
+		4AEFDF0A181C7531004D7AB9 /* F3PlotStrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDF01181C7531004D7AB9 /* F3PlotStrip.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		4AEFDEEE181C68AE004D7AB9 /* DeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManager.h; sourceTree = "<group>"; };
 		4AEFDEEF181C68AE004D7AB9 /* DeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManager.m; sourceTree = "<group>"; };
 		4AEFDEF1181C6A75004D7AB9 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		4AEFDF00181C7531004D7AB9 /* F3PlotStrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3PlotStrip.h; sourceTree = "<group>"; };
+		4AEFDF01181C7531004D7AB9 /* F3PlotStrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3PlotStrip.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +189,7 @@
 		4AEFDED8181C5A44004D7AB9 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4AEFDEF9181C7531004D7AB9 /* F3PlotStrip */,
 				4AEFDED9181C5A44004D7AB9 /* PLTDevice */,
 			);
 			path = Vendor;
@@ -226,6 +230,15 @@
 				4AEFDEE9181C5A44004D7AB9 /* libPLTDevice.a */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		4AEFDEF9181C7531004D7AB9 /* F3PlotStrip */ = {
+			isa = PBXGroup;
+			children = (
+				4AEFDF00181C7531004D7AB9 /* F3PlotStrip.h */,
+				4AEFDF01181C7531004D7AB9 /* F3PlotStrip.m */,
+			);
+			path = F3PlotStrip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +340,7 @@
 			files = (
 				4AEFDEBA181C57A0004D7AB9 /* ViewController.m in Sources */,
 				4AEFDEF0181C68AE004D7AB9 /* DeviceManager.m in Sources */,
+				4AEFDF0A181C7531004D7AB9 /* F3PlotStrip.m in Sources */,
 				4AEFDEED181C5FB9004D7AB9 /* GestureDetector.m in Sources */,
 				4AEFDEB4181C57A0004D7AB9 /* AppDelegate.m in Sources */,
 				4AEFDEB0181C579F004D7AB9 /* main.m in Sources */,

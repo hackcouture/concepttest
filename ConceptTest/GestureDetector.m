@@ -38,6 +38,7 @@
 - (void)PLTDevice:(PLTDevice *)aDevice didUpdateInfo:(PLTInfo *)theInfo
 {
     PLTEulerAngles eulerAngles = ((PLTOrientationTrackingInfo *)theInfo).eulerAngles;
+    [[NSNotificationCenter defaultCenter] postNotificationName:GestureDetectorMotionNotification object:theInfo];
     [self gestureCheck:theInfo.timestamp.timeIntervalSince1970 noplane:eulerAngles.x yesplane:eulerAngles.z];
 }
 

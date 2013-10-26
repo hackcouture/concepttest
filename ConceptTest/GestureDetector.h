@@ -10,6 +10,7 @@
 
 #define GestureDetectorYesDetectedNotification @"GestureDetectorYesDetected"
 #define GestureDetectorNoDetectedNotification @"GestureDetectorNoDetected"
+#define GestureDetectorMotionNotification @"GestureDetectorMotion"
 
 @interface GestureDetector : NSObject
 
