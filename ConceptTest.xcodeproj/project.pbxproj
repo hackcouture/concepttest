@@ -31,6 +31,7 @@
 		4AEFDF24181C832B004D7AB9 /* guitar_chord_C_01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFDF1C181C832B004D7AB9 /* guitar_chord_C_01.caf */; };
 		4AEFDF26181C832B004D7AB9 /* guitar_chord_D_01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFDF1E181C832B004D7AB9 /* guitar_chord_D_01.caf */; };
 		4AEFDF29181C849E004D7AB9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDF28181C849D004D7AB9 /* AVFoundation.framework */; };
+		4AEFDF2B181CAF24004D7AB9 /* crowd_cheer_01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFDF2A181CAF24004D7AB9 /* crowd_cheer_01.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		4AEFDF1C181C832B004D7AB9 /* guitar_chord_C_01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar_chord_C_01.caf; sourceTree = "<group>"; };
 		4AEFDF1E181C832B004D7AB9 /* guitar_chord_D_01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar_chord_D_01.caf; sourceTree = "<group>"; };
 		4AEFDF28181C849D004D7AB9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4AEFDF2A181CAF24004D7AB9 /* crowd_cheer_01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = crowd_cheer_01.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 		4AEFDF17181C832B004D7AB9 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				4AEFDF2A181CAF24004D7AB9 /* crowd_cheer_01.caf */,
 				4AEFDF18181C832B004D7AB9 /* guitar_chord_A_01.caf */,
 				4AEFDF1A181C832B004D7AB9 /* guitar_chord_B_01.caf */,
 				4AEFDF1C181C832B004D7AB9 /* guitar_chord_C_01.caf */,
@@ -348,6 +351,7 @@
 				4AEFDF22181C832B004D7AB9 /* guitar_chord_B_01.caf in Resources */,
 				4AEFDEAE181C579F004D7AB9 /* InfoPlist.strings in Resources */,
 				4AEFDEB7181C57A0004D7AB9 /* Main.storyboard in Resources */,
+				4AEFDF2B181CAF24004D7AB9 /* crowd_cheer_01.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
