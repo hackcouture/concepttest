@@ -8,22 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
-@class F3PlotStrip;
+typedef enum {
+    SequenceMode,
+    FreejamMode,
+    GameMode
+} AppMode;
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIBarPositioningDelegate>
+
+@property (nonatomic, weak) IBOutlet UINavigationBar *bar;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
+
+@property (nonatomic) AppMode mode;
 
 @property (nonatomic, weak) IBOutlet UIButton *aButton;
 @property (nonatomic, weak) IBOutlet UIButton *bButton;
 @property (nonatomic, weak) IBOutlet UIButton *cButton;
 @property (nonatomic, weak) IBOutlet UIButton *dButton;
 
-@property (nonatomic, weak) IBOutlet F3PlotStrip *headingStrip;
-@property (nonatomic, weak) IBOutlet F3PlotStrip *pitchStrip;
-
-- (IBAction)didTapA:(id)sender;
-- (IBAction)didTapB:(id)sender;
-- (IBAction)didTapC:(id)sender;
-- (IBAction)didTapD:(id)sender;
+- (IBAction)didChangeSegmentedControl:(id)sender;
+- (IBAction)didTapButton:(id)sender;
 
 - (IBAction)stopAll;
 

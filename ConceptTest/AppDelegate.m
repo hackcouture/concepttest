@@ -20,6 +20,9 @@
     [s setCategory:AVAudioSessionCategoryPlayback error:&error];
     [s setActive:YES error:&error];
     
+    
+    self.window.tintColor = [UIColor whiteColor];
+    
     return YES;
 }
 							
