@@ -12,7 +12,7 @@
 		4AE16C1D181D8ADB000F57CA /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE16C16181D8ADB000F57CA /* UIColor+Hex.m */; };
 		4AE16C1E181D8ADB000F57CA /* UIColor+HSB.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE16C18181D8ADB000F57CA /* UIColor+HSB.m */; };
 		4AE16C1F181D8ADB000F57CA /* UIColor+HSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE16C1A181D8ADB000F57CA /* UIColor+HSL.m */; };
-		4AE16C22181D8C5D000F57CA /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE16C21181D8C5D000F57CA /* NSTimer+Blocks.m */; };
+		4AE16C22181D8C5D000F57CA /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE16C21181D8C5D000F57CA /* NSTimer+Blocks.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4AEFDEA4181C579F004D7AB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDEA3181C579F004D7AB9 /* Foundation.framework */; };
 		4AEFDEA6181C579F004D7AB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDEA5181C579F004D7AB9 /* CoreGraphics.framework */; };
 		4AEFDEA8181C579F004D7AB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDEA7181C579F004D7AB9 /* UIKit.framework */; };
@@ -37,6 +37,7 @@
 		4AEFDF26181C832B004D7AB9 /* guitar_chord_D_01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFDF1E181C832B004D7AB9 /* guitar_chord_D_01.caf */; };
 		4AEFDF29181C849E004D7AB9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDF28181C849D004D7AB9 /* AVFoundation.framework */; };
 		4AEFDF2B181CAF24004D7AB9 /* crowd_cheer_01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFDF2A181CAF24004D7AB9 /* crowd_cheer_01.caf */; };
+		4AEFDF2E181CB644004D7AB9 /* GloveTalker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDF2D181CB644004D7AB9 /* GloveTalker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		4AEFDF1E181C832B004D7AB9 /* guitar_chord_D_01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar_chord_D_01.caf; sourceTree = "<group>"; };
 		4AEFDF28181C849D004D7AB9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4AEFDF2A181CAF24004D7AB9 /* crowd_cheer_01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = crowd_cheer_01.caf; sourceTree = "<group>"; };
+		4AEFDF2C181CB644004D7AB9 /* GloveTalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GloveTalker.h; sourceTree = "<group>"; };
+		4AEFDF2D181CB644004D7AB9 /* GloveTalker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GloveTalker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,13 @@
 			path = Vendor/color/EDColor;
 			sourceTree = SOURCE_ROOT;
 		};
+		4AE16C23181D9FAF000F57CA /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		4AEFDE97181C579F004D7AB9 = {
 			isa = PBXGroup;
 			children = (
@@ -192,9 +202,12 @@
 		4AEFDEA9181C579F004D7AB9 /* ConceptTest */ = {
 			isa = PBXGroup;
 			children = (
+				4AE16C23181D9FAF000F57CA /* iPad */,
 				4AEFDED8181C5A44004D7AB9 /* Vendor */,
 				4AEFDEB2181C579F004D7AB9 /* AppDelegate.h */,
 				4AEFDEB3181C57A0004D7AB9 /* AppDelegate.m */,
+				4AEFDF2C181CB644004D7AB9 /* GloveTalker.h */,
+				4AEFDF2D181CB644004D7AB9 /* GloveTalker.m */,
 				4AEFDEB5181C57A0004D7AB9 /* Main.storyboard */,
 				4AEFDEB8181C57A0004D7AB9 /* ViewController.h */,
 				4AEFDEB9181C57A0004D7AB9 /* ViewController.m */,
@@ -400,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AEFDF2E181CB644004D7AB9 /* GloveTalker.m in Sources */,
 				4AE16C1E181D8ADB000F57CA /* UIColor+HSB.m in Sources */,
 				4AE16C1F181D8ADB000F57CA /* UIColor+HSL.m in Sources */,
 				4AE16C1B181D8ADB000F57CA /* UIColor+CIELAB.m in Sources */,
@@ -540,11 +554,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConceptTest/ConceptTest-Prefix.pch";
 				INFOPLIST_FILE = "ConceptTest/ConceptTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/phil/src/Experiments/hackcouture/ConceptTest/ConceptTest/Vendor/PLTDevice/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -557,11 +573,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConceptTest/ConceptTest-Prefix.pch";
 				INFOPLIST_FILE = "ConceptTest/ConceptTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/phil/src/Experiments/hackcouture/ConceptTest/ConceptTest/Vendor/PLTDevice/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -627,6 +645,7 @@
 				4AEFDED4181C57A0004D7AB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AEFDED5181C57A0004D7AB9 /* Build configuration list for PBXNativeTarget "ConceptTestTests" */ = {
 			isa = XCConfigurationList;
@@ -635,6 +654,7 @@
 				4AEFDED7181C57A0004D7AB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DeviceManager.h"
+#import "GloveTalker.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,7 @@
     [s setCategory:AVAudioSessionCategoryPlayback error:&error];
     [s setActive:YES error:&error];
     
+    [[GloveTalker sharedGloveTalker] connect];
     
     self.window.tintColor = [UIColor whiteColor];
     
