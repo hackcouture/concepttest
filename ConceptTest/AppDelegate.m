@@ -15,10 +15,11 @@
 {
     [[DeviceManager sharedManager] watchForDevices];
     
+    NSError *error = nil;
     AVAudioSession *s = [AVAudioSession sharedInstance];
-    [s setCategory:AVAudioSessionCategoryPlayback error:nil];
-    [s setActive:YES error:nil];
-    [s overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+    [s setCategory:AVAudioSessionCategoryPlayback error:&error];
+    [s setActive:YES error:&error];
+    
     return YES;
 }
 							
