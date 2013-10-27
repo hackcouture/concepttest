@@ -15,3 +15,5 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "PLTDevice.h"
+#import "EDColor.h"
+#import "NSTimer+Blocks.h"

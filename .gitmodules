@@ -1,0 +1,6 @@
+[submodule "Vendor/color"]
+	path = Vendor/color
+	url = https://github.com/thisandagain/color.git
+[submodule "Vendor/NSTimer-Blocks"]
+	path = Vendor/NSTimer-Blocks
+	url = https://github.com/jivadevoe/NSTimer-Blocks.git
