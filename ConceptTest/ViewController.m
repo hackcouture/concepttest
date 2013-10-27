@@ -232,7 +232,7 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
     }
     
     if (self.mode == SequenceMode) {
-        NSInteger seqSound = sequence[self.nextInSequence];
+        NSInteger seqSound = sequence[MAX(self.nextInSequence-1,0)];
         [self highlightButton:seqSound];
     }
 }
