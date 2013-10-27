@@ -26,6 +26,11 @@
 		4AEFDEF0181C68AE004D7AB9 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDEEF181C68AE004D7AB9 /* DeviceManager.m */; };
 		4AEFDEF2181C6A75004D7AB9 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDEF1181C6A75004D7AB9 /* ExternalAccessory.framework */; };
 		4AEFDF0A181C7531004D7AB9 /* F3PlotStrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFDF01181C7531004D7AB9 /* F3PlotStrip.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4AEFDF20181C832B004D7AB9 /* guitar_chord_A_01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFDF18181C832B004D7AB9 /* guitar_chord_A_01.caf */; };
+		4AEFDF22181C832B004D7AB9 /* guitar_chord_B_01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFDF1A181C832B004D7AB9 /* guitar_chord_B_01.caf */; };
+		4AEFDF24181C832B004D7AB9 /* guitar_chord_C_01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFDF1C181C832B004D7AB9 /* guitar_chord_C_01.caf */; };
+		4AEFDF26181C832B004D7AB9 /* guitar_chord_D_01.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFDF1E181C832B004D7AB9 /* guitar_chord_D_01.caf */; };
+		4AEFDF29181C849E004D7AB9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEFDF28181C849D004D7AB9 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +84,11 @@
 		4AEFDEF1181C6A75004D7AB9 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		4AEFDF00181C7531004D7AB9 /* F3PlotStrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F3PlotStrip.h; sourceTree = "<group>"; };
 		4AEFDF01181C7531004D7AB9 /* F3PlotStrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F3PlotStrip.m; sourceTree = "<group>"; };
+		4AEFDF18181C832B004D7AB9 /* guitar_chord_A_01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar_chord_A_01.caf; sourceTree = "<group>"; };
+		4AEFDF1A181C832B004D7AB9 /* guitar_chord_B_01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar_chord_B_01.caf; sourceTree = "<group>"; };
+		4AEFDF1C181C832B004D7AB9 /* guitar_chord_C_01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar_chord_C_01.caf; sourceTree = "<group>"; };
+		4AEFDF1E181C832B004D7AB9 /* guitar_chord_D_01.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar_chord_D_01.caf; sourceTree = "<group>"; };
+		4AEFDF28181C849D004D7AB9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AEFDF29181C849E004D7AB9 /* AVFoundation.framework in Frameworks */,
 				4AEFDEF2181C6A75004D7AB9 /* ExternalAccessory.framework in Frameworks */,
 				4AEFDEEA181C5A44004D7AB9 /* libPLTDevice.a in Frameworks */,
 				4AEFDEA6181C579F004D7AB9 /* CoreGraphics.framework in Frameworks */,
@@ -129,6 +140,7 @@
 		4AEFDEA2181C579F004D7AB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AEFDF28181C849D004D7AB9 /* AVFoundation.framework */,
 				4AEFDEF1181C6A75004D7AB9 /* ExternalAccessory.framework */,
 				4AEFDEA3181C579F004D7AB9 /* Foundation.framework */,
 				4AEFDEA5181C579F004D7AB9 /* CoreGraphics.framework */,
@@ -160,6 +172,7 @@
 		4AEFDEAA181C579F004D7AB9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4AEFDF17181C832B004D7AB9 /* Audio */,
 				4AEFDEAB181C579F004D7AB9 /* ConceptTest-Info.plist */,
 				4AEFDEAC181C579F004D7AB9 /* InfoPlist.strings */,
 				4AEFDEAF181C579F004D7AB9 /* main.m */,
@@ -241,6 +254,17 @@
 			path = F3PlotStrip;
 			sourceTree = "<group>";
 		};
+		4AEFDF17181C832B004D7AB9 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				4AEFDF18181C832B004D7AB9 /* guitar_chord_A_01.caf */,
+				4AEFDF1A181C832B004D7AB9 /* guitar_chord_B_01.caf */,
+				4AEFDF1C181C832B004D7AB9 /* guitar_chord_C_01.caf */,
+				4AEFDF1E181C832B004D7AB9 /* guitar_chord_D_01.caf */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,7 +341,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AEFDF20181C832B004D7AB9 /* guitar_chord_A_01.caf in Resources */,
+				4AEFDF24181C832B004D7AB9 /* guitar_chord_C_01.caf in Resources */,
+				4AEFDF26181C832B004D7AB9 /* guitar_chord_D_01.caf in Resources */,
 				4AEFDEBC181C57A0004D7AB9 /* Images.xcassets in Resources */,
+				4AEFDF22181C832B004D7AB9 /* guitar_chord_B_01.caf in Resources */,
 				4AEFDEAE181C579F004D7AB9 /* InfoPlist.strings in Resources */,
 				4AEFDEB7181C57A0004D7AB9 /* Main.storyboard in Resources */,
 			);

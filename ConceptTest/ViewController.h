@@ -12,9 +12,19 @@
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UILabel *yesLabel;
-@property (nonatomic, weak) IBOutlet UILabel *noLabel;
+@property (nonatomic, weak) IBOutlet UIButton *aButton;
+@property (nonatomic, weak) IBOutlet UIButton *bButton;
+@property (nonatomic, weak) IBOutlet UIButton *cButton;
+@property (nonatomic, weak) IBOutlet UIButton *dButton;
 
-@property (nonatomic, weak) IBOutlet F3PlotStrip *plotStrip;
+@property (nonatomic, weak) IBOutlet F3PlotStrip *headingStrip;
+@property (nonatomic, weak) IBOutlet F3PlotStrip *pitchStrip;
+
+- (IBAction)didTapA:(id)sender;
+- (IBAction)didTapB:(id)sender;
+- (IBAction)didTapC:(id)sender;
+- (IBAction)didTapD:(id)sender;
+
+- (IBAction)stopAll;
 
 @end

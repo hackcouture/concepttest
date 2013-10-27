@@ -12,6 +12,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic) NSArray  *players;
+@property (nonatomic) NSInteger nextSound;
 @end
 
 @implementation ViewController
@@ -20,18 +22,15 @@
 {
     [super viewDidLoad];
     
-    // set up labels
-    
-    self.yesLabel.hidden = YES;
-    self.noLabel.hidden = YES;
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(yes) name:GestureDetectorYesDetectedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(no) name:GestureDetectorNoDetectedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePlotStrip:) name:GestureDetectorMotionNotification object:nil];
     
-    self.plotStrip.value = 0;
-    self.plotStrip.upperLimit = 200;
-    self.plotStrip.lowerLimit = -200;
+    self.headingStrip.value = self.pitchStrip.value = 0;
+    self.headingStrip.upperLimit = self.pitchStrip.upperLimit = 200;
+    self.headingStrip.lowerLimit = self.pitchStrip.lowerLimit = -200;
+    
+    [self setupAudioPlayers];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,24 +39,69 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setupAudioPlayers
+{
+    NSArray *sampleNames = @[@"guitar_chord_A_01", @"guitar_chord_B_01", @"guitar_chord_C_01", @"guitar_chord_D_01"];
+    NSMutableArray *players = [NSMutableArray array];
+    for (NSString *fileName in sampleNames) {
+        NSURL *url = [[NSBundle mainBundle] URLForResource:fileName withExtension:@"caf"];
+        AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        [player prepareToPlay];
+        [players addObject:player];
+    }
+    
+    self.players = players;
+}
+
+#pragma mark -
+#pragma mark button tapping
+
+- (void)startSound:(NSInteger)index
+{
+    AVAudioPlayer *player = self.players[index];
+    [self stopAll];
+    
+    [player play];
+}
+
+- (void)stopAll
+{
+    for (AVAudioPlayer *p in self.players) {
+        [p stop];
+        p.currentTime = 0;
+        [p prepareToPlay];
+    }
+}
+
+- (IBAction)didTapA:(id)sender
+{
+    self.nextSound = 0;
+}
+
+- (IBAction)didTapB:(id)sender
+{
+    self.nextSound = 1;
+}
+
+- (IBAction)didTapC:(id)sender
+{
+    self.nextSound = 2;
+}
+
+- (IBAction)didTapD:(id)sender
+{
+    self.nextSound = 3;
+}
+
+
 - (void)yes
 {
-    self.yesLabel.hidden = NO;
-    double delayInSeconds = 1.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        self.yesLabel.hidden = YES;
-    });
+    [self startSound:self.nextSound];
 }
 
 - (void)no
 {
-    self.noLabel.hidden = NO;
-    double delayInSeconds = 1.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        self.noLabel.hidden = YES;
-    });
+    [self startSound:self.nextSound];
 }
 
 - (void)updatePlotStrip:(NSNotification *)notification
@@ -65,12 +109,12 @@
     PLTOrientationTrackingInfo *info = notification.object;
     double x = info.eulerAngles.x;
     double y = info.eulerAngles.y;
-    double z = info.eulerAngles.z;
     
-    double mag = sqrt(x*x + y*y + z*z);
-    
-    self.plotStrip.value = mag;
+    self.headingStrip.value = x;
+    self.pitchStrip.value = y;
 }
+
+
 
 
 @end

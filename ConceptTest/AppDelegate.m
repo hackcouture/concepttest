@@ -14,6 +14,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[DeviceManager sharedManager] watchForDevices];
+    
+    AVAudioSession *s = [AVAudioSession sharedInstance];
+    [s setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [s setActive:YES error:nil];
+    [s overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
     return YES;
 }
 							
