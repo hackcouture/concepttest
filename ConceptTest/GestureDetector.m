@@ -8,9 +8,14 @@
 
 #import "GestureDetector.h"
 
+#define kThreshold 15
+#define kMovingAvgConstant 0.1
+
 @interface GestureDetector () <PLTDeviceInfoObserver>
 
 @property (nonatomic) PLTDevice *device;
+@property (nonatomic) BOOL triggered;
+@property (nonatomic) double pitchAverage;
 
 @end
 
@@ -22,6 +27,8 @@
     if (self != nil) {
         self.device = device;
         [device subscribe:self toService:PLTServiceOrientationTracking withMode:PLTSubscriptionModeOnChange minPeriod:0];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zero) name:UIApplicationDidBecomeActiveNotification object:nil];
     }
     
     return self;
@@ -32,65 +39,41 @@
     [self.device unsubscribe:self fromService:PLTServiceOrientationTracking];
 }
 
+- (void)zero
+{
+}
+
 #pragma mark -
 #pragma mark PLTDeviceInfoObserver
 
 - (void)PLTDevice:(PLTDevice *)aDevice didUpdateInfo:(PLTInfo *)theInfo
 {
-    PLTEulerAngles eulerAngles = ((PLTOrientationTrackingInfo *)theInfo).eulerAngles;
-    [[NSNotificationCenter defaultCenter] postNotificationName:GestureDetectorMotionNotification object:theInfo];
-    [self gestureCheck:theInfo.timestamp.timeIntervalSince1970 noplane:eulerAngles.x yesplane:eulerAngles.z];
+    if ([theInfo class] == [PLTOrientationTrackingInfo class]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:GestureDetectorMotionNotification object:theInfo];
+        [self gestureCheck:(PLTOrientationTrackingInfo *)theInfo];
+    }
 }
 
 
 #pragma mark -
 #pragma mark Gesture detection
 
-- (void)gestureCheck:(long long)thetime noplane:(double) theta yesplane:(double)psi
+- (void)gestureCheck:(PLTOrientationTrackingInfo *)info
 {
-    self.theta_ave = self.theta_ave * .8 + theta * .2;
-    self.psi_ave = self.psi_ave * .8 + psi * .2;
+    double pitch = info.eulerAngles.y;
     
-    if ((thetime - self.oldtime) > 5000 || (thetime - self.oldtime) < 0)
-        self.oldtime = thetime;
+    self.pitchAverage = self.pitchAverage * (1.0 - kMovingAvgConstant) + pitch * kMovingAvgConstant;
     
-    if ((thetime - self.oldtime) > 2000 && (self.gesture_state == GEST_UP || self.gesture_state == GEST_LEFT))
-    {
-        self.gesture_state = GEST_START;
-        self.oldtime = thetime;
-        
-    }
-    else if ((thetime - self.oldtime) > 2000 && (self.gesture_state == GEST_YES || self.gesture_state == GEST_NO))
-    {
-        self.gesture_state = GEST_START;
-        self.oldtime = thetime;
-        
-    }
-    else if (((theta - self.theta_ave) < -8) && (self.gesture_state == GEST_START))
-    {
-        self.gesture_state = GEST_UP;
-        self.oldtime = thetime;
-    }
-    else if ((theta - self.theta_ave) > 8 && ((thetime - self.oldtime) < 1000) && (self.gesture_state == GEST_UP))
-    {
-        self.gesture_state = GEST_YES;
-        self.oldtime = thetime;
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:GestureDetectorYesDetectedNotification object:nil];
-        self.gesture_state = GEST_START;
-    }
-    else if (((psi - self.psi_ave) < -8) && (self.gesture_state == GEST_START))
-    {
-        self.gesture_state = GEST_LEFT;
-        self.oldtime = thetime;
-    }
-    else if ((psi - self.psi_ave) > 8 && ((thetime - self.oldtime) < 1000) && (self.gesture_state == GEST_LEFT))
-    {
-        self.gesture_state = GEST_NO;
-        self.oldtime = thetime;
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:GestureDetectorNoDetectedNotification object:nil];
-        self.gesture_state = GEST_START;
+    // add for backswings: || pitch >= (self.pitchAverage + kThreshold)
+    if (pitch <= (self.pitchAverage - kThreshold)) {
+        // fire once when you get beyond threshold
+        if (!self.triggered) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:GestureDetectorYesDetectedNotification object:nil];;
+            self.triggered = YES;
+        }
+    } else {
+        // reset
+        self.triggered = NO;
     }
 }
 
