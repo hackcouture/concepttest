@@ -10,6 +10,9 @@
 #import "GestureDetector.h"
 #import "GloveTalker.h"
 
+#define USE_GLOVE 0
+#define USE_SHAKE_TRIGGER 1
+
 #define kAColor [UIColor colorWithHex:0x99ffac]
 #define kBColor [UIColor colorWithHex:0xff99e7]
 #define kCColor [UIColor colorWithHex:0x99caff]
@@ -46,7 +49,7 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(triggered) name:GestureDetectorYesDetectedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSwitches:) name:GloveTalkerFieldStateDidChangeNotification object:nil];
-
+    
     [self setupAudioPlayers];
     
     [self recolor];
@@ -55,7 +58,24 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
     self.mode = SequenceMode;
     self.segmentedControl.selectedSegmentIndex = 0;
     self.gameStep = 0;
-    [self highlightButton:0];
+
+    if (USE_GLOVE) {
+        [self highlightPressedButtons];
+    } else {
+        [self recolor];
+        [self highlightButton:0];
+    }
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +83,16 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#if USE_SHAKE_TRIGGER
+
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake) {
+        [self triggered];
+    }
+}
+
+#endif
 
 - (void)setupAudioPlayers
 {
@@ -84,16 +114,12 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
 
 - (void)updateSwitches:(NSNotification *)notification
 {
-    NSArray *states = notification.object;
-    NSAssert(states.count == 4, @"i'm like, wtf?");
-}
-
-- (void)startSound:(NSInteger)index
-{
-    AVAudioPlayer *player = self.players[index];
-    [self stopAll];
+    self.states = notification.object;
+    NSAssert(self.states.count == 4, @"i'm like, wtf?");
     
-    [player play];
+    if (self.mode == FreejamMode || self.mode == GameMode) {
+        [self highlightPressedButtons];
+    }
 }
 
 - (void)stopAll
@@ -108,7 +134,18 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
 - (void)playNext
 {
     if (self.mode == FreejamMode || self.mode == GameMode) {
-        [self startSound:self.nextSound];
+        [self stopAll];
+        
+        if (USE_GLOVE) {
+            for (int i = 0 ; i<self.states.count; i++) {
+                if ([self.states[i] boolValue] == 1) {
+                    AVAudioPlayer *player = self.players[i];
+                    [player play];
+                }
+            }
+        } else {
+            [(AVAudioPlayer *)self.players[self.nextSound] play];
+        }
 
         if ([self checkForWin]) {
             [self rainbowAnimate];
@@ -116,9 +153,11 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
         
     } else if (![[self.players lastObject] isPlaying]) {
         NSInteger seqSound = sequence[self.nextInSequence];
-        [self startSound:seqSound];
+        [self stopAll];
+        [(AVAudioPlayer *)self.players[seqSound] play];
         self.nextInSequence = (self.nextInSequence + 1) % seqLength;
 
+        [self recolor];
         [self highlightButton:seqSound];
         if (seqSound == 4) {
             // winning!
@@ -150,13 +189,14 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
 {
     if (self.mode == FreejamMode || self.mode == GameMode) {
         self.nextSound = sender.tag;
+        [self recolor];
         [self highlightButton:sender.tag];
+
     }
 }
 
 - (void)triggered
 {
-    NSInteger next = sequence[self.nextInSequence];
     [self playNext];
 }
 
@@ -191,8 +231,17 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
             break;
     }
     
-    [self recolor];
     target.backgroundColor = [target.backgroundColor offsetWithHue:0.0 saturation:1.0 brightness:1.0 alpha:1.0];
+}
+
+- (void)highlightPressedButtons
+{
+    [self recolor];
+    for (int i=0; i<self.states.count; i++) {
+        if ([self.states[i] boolValue] == YES) {
+            [self highlightButton:i];
+        }
+    }
 }
 
 - (void)rainbowAnimate
@@ -233,6 +282,8 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
     
     if (self.mode == SequenceMode) {
         NSInteger seqSound = sequence[MAX(self.nextInSequence-1,0)];
+
+        [self recolor];
         [self highlightButton:seqSound];
     }
 }

@@ -8,7 +8,8 @@
 
 #import "GloveTalker.h"
 
-#define kUrlString @"http://127.0.0.1/replaceme"
+#define kUrlString @"http://10.1.10.55:1234/replaceme"
+#define kPollWait 0.1 // latency before reconnect
 
 @interface GloveTalker () <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
@@ -49,6 +50,15 @@
     [self.connection start];
 }
 
+- (void)connectAfterDelay
+{
+    double delayInSeconds = kPollWait;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self connect];
+    });
+}
+
 #pragma mark -
 #pragma mark NSURLConnectionDelegate
 
@@ -59,9 +69,6 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    // switch_number,state\n
-    // "4,1\n"
-    
     NSString *package = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     for (NSString *message in [package componentsSeparatedByString:@"\n"]) {
         NSArray *fields = [message componentsSeparatedByString:@","];
@@ -78,13 +85,13 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    
+    [self connectAfterDelay];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     // Loooooooooooooooooop
-    [self connect];
+    [self connectAfterDelay];
 }
 
 @end

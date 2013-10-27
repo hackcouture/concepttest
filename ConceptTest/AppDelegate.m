@@ -22,8 +22,8 @@
     [s setActive:YES error:&error];
     
     [[GloveTalker sharedGloveTalker] connect];
-    
-    self.window.tintColor = [UIColor whiteColor];
+
+    self.window.tintColor = [UIColor colorWithHex:0x99ffac];
     
     return YES;
 }
