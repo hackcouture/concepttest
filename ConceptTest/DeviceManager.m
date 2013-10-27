@@ -76,6 +76,13 @@
 - (void)PLTDeviceDidCloseConnection:(PLTDevice *)aDevice
 {
     self.gestureDetector = nil;
+    self.device = nil;
+}
+
+- (void)PLTDeviceDidDisconnect:(PLTDevice *)device
+{
+    self.gestureDetector = nil;
+    self.device = nil;
 }
 
 
