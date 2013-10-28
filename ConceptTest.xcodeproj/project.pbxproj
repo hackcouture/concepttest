@@ -160,13 +160,6 @@
 			path = Vendor/color/EDColor;
 			sourceTree = SOURCE_ROOT;
 		};
-		4AE16C23181D9FAF000F57CA /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
 		4AEFDE97181C579F004D7AB9 = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +195,6 @@
 		4AEFDEA9181C579F004D7AB9 /* ConceptTest */ = {
 			isa = PBXGroup;
 			children = (
-				4AE16C23181D9FAF000F57CA /* iPad */,
 				4AEFDED8181C5A44004D7AB9 /* Vendor */,
 				4AEFDEB2181C579F004D7AB9 /* AppDelegate.h */,
 				4AEFDEB3181C57A0004D7AB9 /* AppDelegate.m */,

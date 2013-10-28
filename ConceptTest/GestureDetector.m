@@ -27,8 +27,6 @@
     if (self != nil) {
         self.device = device;
         [device subscribe:self toService:PLTServiceOrientationTracking withMode:PLTSubscriptionModeOnChange minPeriod:0];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zero) name:UIApplicationDidBecomeActiveNotification object:nil];
     }
     
     return self;
@@ -37,10 +35,6 @@
 - (void)dealloc
 {
     [self.device unsubscribe:self fromService:PLTServiceOrientationTracking];
-}
-
-- (void)zero
-{
 }
 
 #pragma mark -

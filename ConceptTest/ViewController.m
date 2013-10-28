@@ -10,7 +10,7 @@
 #import "GestureDetector.h"
 #import "GloveTalker.h"
 
-#define USE_GLOVE 0
+#define USE_GLOVE 1
 #define USE_SHAKE_TRIGGER 1
 
 #define kAColor [UIColor colorWithHex:0x99ffac]
@@ -47,6 +47,8 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
 {
     [super viewDidLoad];
     
+//    self.view.backgroundColor = [UIColor colorWithHex:0xffaabb];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(triggered) name:GestureDetectorYesDetectedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSwitches:) name:GloveTalkerFieldStateDidChangeNotification object:nil];
     
@@ -66,6 +68,8 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
         [self highlightButton:0];
     }
 }
+
+
 
 - (BOOL)canBecomeFirstResponder
 {

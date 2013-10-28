@@ -8,8 +8,8 @@
 
 #import "GloveTalker.h"
 
-#define kUrlString @"http://10.1.10.55:1234/replaceme"
-#define kPollWait 0.1 // latency before reconnect
+#define kUrlString @"http://172.20.10.5/static/"
+#define kPollWait 0.01 // latency before reconnect
 
 @interface GloveTalker () <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
@@ -72,14 +72,15 @@
     NSString *package = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     for (NSString *message in [package componentsSeparatedByString:@"\n"]) {
         NSArray *fields = [message componentsSeparatedByString:@","];
-        NSAssert(fields.count == 4, @"fuck, man");
-        
-        NSMutableArray *numericFields = [NSMutableArray arrayWithCapacity:fields.count];
-        for (NSString *field in fields) {
-            [numericFields addObject:@([field boolValue])];
+
+        if (fields.count == 4) {
+            NSMutableArray *numericFields = [NSMutableArray arrayWithCapacity:fields.count];
+            for (NSString *field in fields) {
+                [numericFields addObject:@(![field boolValue])];
+            }
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:GloveTalkerFieldStateDidChangeNotification object:numericFields];
         }
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:GloveTalkerFieldStateDidChangeNotification object:numericFields];
     }
 }
 
