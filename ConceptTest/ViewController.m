@@ -118,11 +118,20 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
 
 - (void)updateSwitches:(NSNotification *)notification
 {
+    NSArray *oldStates = self.states;
     self.states = notification.object;
     NSAssert(self.states.count == 4, @"i'm like, wtf?");
     
     if (self.mode == FreejamMode || self.mode == GameMode) {
         [self highlightPressedButtons];
+    }
+    
+    // trigger if states changed
+    for (int i=0;i<4;i++) {
+        if ([oldStates[i] boolValue] != [self.states[i] boolValue]) {
+            [self triggered];
+            break;
+        }
     }
 }
 
