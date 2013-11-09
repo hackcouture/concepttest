@@ -8,8 +8,8 @@
 
 #import "GloveTalker.h"
 
-#define kUrlString @"http://172.20.10.5/static/"
-#define kPollWait 0.01 // latency before reconnect
+#define kUrlString @"http://172.20.10.5/"
+#define kPollWait 0.05 // latency before reconnect
 
 @interface GloveTalker () <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
