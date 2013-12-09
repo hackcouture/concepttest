@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A685083182034830012ADAC /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A685082182034830012ADAC /* Main-iPad.storyboard */; };
 		4AE16C1B181D8ADB000F57CA /* UIColor+CIELAB.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE16C12181D8ADB000F57CA /* UIColor+CIELAB.m */; };
 		4AE16C1C181D8ADB000F57CA /* UIColor+Crayola.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE16C14181D8ADB000F57CA /* UIColor+Crayola.m */; };
 		4AE16C1D181D8ADB000F57CA /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE16C16181D8ADB000F57CA /* UIColor+Hex.m */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A685082182034830012ADAC /* Main-iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-iPad.storyboard"; sourceTree = "<group>"; };
 		4AE16C0F181D8ADB000F57CA /* Crayola.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crayola.h; sourceTree = "<group>"; };
 		4AE16C10181D8ADB000F57CA /* EDColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDColor.h; sourceTree = "<group>"; };
 		4AE16C11181D8ADB000F57CA /* UIColor+CIELAB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CIELAB.h"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				4AEFDF2C181CB644004D7AB9 /* GloveTalker.h */,
 				4AEFDF2D181CB644004D7AB9 /* GloveTalker.m */,
 				4AEFDEB5181C57A0004D7AB9 /* Main.storyboard */,
+				4A685082182034830012ADAC /* Main-iPad.storyboard */,
 				4AEFDEB8181C57A0004D7AB9 /* ViewController.h */,
 				4AEFDEB9181C57A0004D7AB9 /* ViewController.m */,
 				4AEFDEEB181C5FB9004D7AB9 /* GestureDetector.h */,
@@ -381,6 +384,7 @@
 			files = (
 				4AEFDF20181C832B004D7AB9 /* guitar_chord_A_01.caf in Resources */,
 				4AEFDF24181C832B004D7AB9 /* guitar_chord_C_01.caf in Resources */,
+				4A685083182034830012ADAC /* Main-iPad.storyboard in Resources */,
 				4AEFDF26181C832B004D7AB9 /* guitar_chord_D_01.caf in Resources */,
 				4AEFDEBC181C57A0004D7AB9 /* Images.xcassets in Resources */,
 				4AEFDF22181C832B004D7AB9 /* guitar_chord_B_01.caf in Resources */,
@@ -551,8 +555,10 @@
 					"$(inherited)",
 					/Users/phil/src/Experiments/hackcouture/ConceptTest/ConceptTest/Vendor/PLTDevice/lib,
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -562,6 +568,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Phillip Kast (J7M5E9DBKW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Phillip Kast (J7M5E9DBKW)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ConceptTest/ConceptTest-Prefix.pch";
 				INFOPLIST_FILE = "ConceptTest/ConceptTest-Info.plist";
@@ -571,7 +579,9 @@
 					/Users/phil/src/Experiments/hackcouture/ConceptTest/ConceptTest/Vendor/PLTDevice/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "629B47F5-1A41-4840-A0B4-5B89F97E4B24";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

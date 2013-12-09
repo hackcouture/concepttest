@@ -10,7 +10,7 @@
 #import "GestureDetector.h"
 #import "GloveTalker.h"
 
-#define USE_GLOVE 1
+#define USE_GLOVE self.gloveSwitch.isOn
 #define USE_SHAKE_TRIGGER 1
 
 #define kAColor [UIColor colorWithHex:0x99ffac]
@@ -224,26 +224,25 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
     self.dButton.backgroundColor = [kDColor offsetWithHue:0 saturation:-0.2 brightness:0 alpha:0];
 }
 
-- (void)highlightButton:(NSInteger)n
+- (UIButton *)buttonForIndex:(NSInteger)n
 {
-    UIButton *target = nil;
     switch (n) {
         case 0:
-            target = self.aButton;
-            break;
+            return self.aButton;
         case 1:
-            target = self.bButton;
-            break;
+            return self.bButton;
         case 2:
-            target = self.cButton;
-            break;
+            return self.cButton;
         case 3:
-            target = self.dButton;
-            break;
+            return  self.dButton;
         default:
-            break;
+            return nil;
     }
-    
+}
+
+- (void)highlightButton:(NSInteger)n
+{
+    UIButton *target = [self buttonForIndex:n];
     target.backgroundColor = [target.backgroundColor offsetWithHue:0.0 saturation:1.0 brightness:1.0 alpha:1.0];
 }
 
@@ -299,6 +298,11 @@ static NSInteger seqLength = sizeof(sequence)/sizeof(NSInteger);
         [self recolor];
         [self highlightButton:seqSound];
     }
+}
+
+- (IBAction)didChangeGloveSwitch:(id)sender
+{
+    [self highlightPressedButtons];
 }
 
 @end

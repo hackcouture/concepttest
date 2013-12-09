@@ -18,6 +18,7 @@ typedef enum {
 
 @property (nonatomic, weak) IBOutlet UINavigationBar *bar;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
+@property (nonatomic, weak) IBOutlet UISwitch *gloveSwitch;
 
 @property (nonatomic) AppMode mode;
 
@@ -26,6 +27,7 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UIButton *cButton;
 @property (nonatomic, weak) IBOutlet UIButton *dButton;
 
+- (IBAction)didChangeGloveSwitch:(id)sender;
 - (IBAction)didChangeSegmentedControl:(id)sender;
 - (IBAction)didTapButton:(id)sender;
 
